@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Nav from './Nav';
-
+import axios from 'axios';
 
 export default class Form extends Component{
 
@@ -10,7 +10,7 @@ export default class Form extends Component{
             firstName: '',
             lastName: '',
             email: '',
-            zip: 0,
+            zip: '',
             st: 'AL',
         }
         this.handleChange = this.handleChange.bind(this);
@@ -48,6 +48,35 @@ export default class Form extends Component{
 
     handleSubmit(evt){
         evt.preventDefault();
+
+        const {firstName, lastName, email, zip, st} = this.state;
+
+        if(firstName && lastName && email && zip && st){
+            axios.post('api/signup', {
+                firstName, lastName, email, zip, st
+            })
+            .then(res => res.data)
+            // .then(()=>{
+            //     this.setState({
+            //         firstName: '',
+            //         lastName: '',
+            //         email:'',
+            //         zip:0,
+            //         st: 'AL'
+            //     })
+            // })
+        }else{
+            alert('please fill in all the fields')
+        }
+
+        this.setState({
+                firstName: '',
+                lastName: '',
+                email:'',
+                zip:'',
+                st: 'AL'
+        })
+
     }
 
     render(){
@@ -59,26 +88,26 @@ export default class Form extends Component{
             <br/>
             <br/>
             <br/>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <br/>
                 <div>
                     <label>First Name: </label>
-                    <input type="text" name="firstName" onBlur={this.handleBlur} size="11" onBlur={this.handleBlur} required/>
+                    <input type="text" name="firstName" value={this.state.firstName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
                 </div>
                 <br/>
                 <div>
                     <label>Last Name: </label>
-                    <input type="text" name="lastName" onBlur={this.handleBlur} size="11" required/>
+                    <input type="text" name="lastName" value={this.state.lastName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
                 </div>
                 <br/>
                 <div>
                     <label>Email: </label>
-                    <input type="email" name="email" onBlur={this.handleBlur} size="35" required/>
+                    <input type="email" name="email" value={this.state.email} onBlur={this.handleBlur} size="35" onChange={this.handleChange} required/>
                 </div>
                 <br/>
                 <div>
                     <label>Zip Code: </label>
-                    <input type="number" name="zip" onBlur={this.handleBlur} size="5" required/>
+                    <input type="number" name="zip" value={this.state.zip} onBlur={this.handleBlur} size="5" onChange={this.handleChange} required/>
                 </div>
                 <br/>
                 <label>State: </label>
@@ -135,7 +164,7 @@ export default class Form extends Component{
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                 </select>				
-
+                <input type="submit" value="Submit" />
             </form>
             </div>
         )

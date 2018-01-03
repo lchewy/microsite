@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://localhost:5432/microsite');
+const db = new Sequelize('postgres://localhost:5432/microsite', {
+  logging: false,
+  operatorsAliases: false
+});
 
-const User = db.define('user',
+const User = db.define('users',
 {
     firstName:{
         type: Sequelize.STRING,
@@ -16,7 +19,7 @@ const User = db.define('user',
         allowNull: false
     },
     zip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     st:{
@@ -27,5 +30,6 @@ const User = db.define('user',
 })
 
 module.exports = {
+  db,
   User
 };
