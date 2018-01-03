@@ -2,29 +2,20 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import AllPuppiesContainer from './AllPuppies';
-import AllPuppiesContainer from './AllPuppiesContainer'
-import {Provider} from 'react-redux';
-import store from './store';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
-import SinglePuppy from './SinglePuppy';
+import Main from './Main';
+import Form from './Form';
 
 
 
 ReactDOM.render(
-  <Provider store={store}>
     <Router>
-        <div className="container flexbox-container">
-          <div className="jumbotron">
-            <Switch>
-              <Route exact path="/puppies" component={AllPuppiesContainer}/>
-              <Route exact path="/"  component={AllPuppiesContainer} />  
-              <Route exact path="/puppies/:id"  component={SinglePuppy}/> 
-            </Switch>
-          </div>
+        <div>
+          {/*<Main />*/}
+          <Route exact path="/"  component={Main} />  
+          <Route exact path="/signup"  component={Form}/> 
         </div>
-      </Router>
-  </Provider>,
+    </Router>,
   document.getElementById('app')
 );
 
