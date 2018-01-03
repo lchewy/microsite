@@ -96,7 +96,7 @@ footer {
   height: 100%;
 }*/
 
-.btn{
+.herobtn{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -109,6 +109,14 @@ footer {
   /*background: transparent;*/
 }
 
+.herobtn a:hover{
+  text-decoration: none;
+}
+.brand:hover{
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .hero{
   max-height: 542.73px;
   width: 100%;
@@ -119,4 +127,8 @@ footer {
   .btn {
   display: none;
   }
+}
+
+.form{
+  padding: 30px;
 }

@@ -7,7 +7,7 @@ export default class Hero extends Component{
     <div>
         {/*<div className="overlay"></div>*/}
         
-            <button type="button" className="btn btn-default"><Link to="/signup">Sign Up</Link></button>
+            <button type="button" className="btn btn-default herobtn"><Link to="/signup">Sign Up</Link></button>
          
         <div id="myCarousel" className="carousel slide" data-ride="carousel">
             <ol className="carousel-indicators">

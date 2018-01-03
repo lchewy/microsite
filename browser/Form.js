@@ -88,30 +88,46 @@ export default class Form extends Component{
             <br/>
             <br/>
             <br/>
-            <form onSubmit={this.handleSubmit}>
+
+            <div className="container">
+            <form onSubmit={this.handleSubmit} className="form">
+                
+                
                 <br/>
-                <div>
+                <div className="form-group row">
+                <div className="col-xs-4">
                     <label>First Name: </label>
-                    <input type="text" name="firstName" value={this.state.firstName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
+                    <input className="form-control" type="text" name="firstName" value={this.state.firstName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
+                </div>
                 </div>
                 <br/>
-                <div>
+                
+
+                <div className="form-group row">
+                <div className="col-xs-4">
                     <label>Last Name: </label>
-                    <input type="text" name="lastName" value={this.state.lastName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
+                    <input className="form-control"  type="text" name="lastName" value={this.state.lastName} onBlur={this.handleBlur} size="11" onChange={this.handleChange} required/>
+                </div>
                 </div>
                 <br/>
-                <div>
+                <div className="form-group row">
+                <div className="col-xs-4">
                     <label>Email: </label>
-                    <input type="email" name="email" value={this.state.email} onBlur={this.handleBlur} size="35" onChange={this.handleChange} required/>
+                    <input className="form-control"  type="email" name="email" value={this.state.email} onBlur={this.handleBlur} size="35" onChange={this.handleChange} required/>
+                </div>
                 </div>
                 <br/>
-                <div>
+                <div className="form-group row">
+                <div className="col-xs-4">
                     <label>Zip Code: </label>
-                    <input type="number" name="zip" value={this.state.zip} onBlur={this.handleBlur} size="5" onChange={this.handleChange} required/>
+                    <input className="form-control"  type="number" name="zip" value={this.state.zip} onBlur={this.handleBlur} size="5" onChange={this.handleChange} required/>
+                </div>
                 </div>
                 <br/>
+                <div className="form-group row">
+                <div className="col-xs-4">
                 <label>State: </label>
-                <select name="st" value={this.state.st} onChange={this.handleChange}>
+                <select className="form-control"  name="st" value={this.state.st} onChange={this.handleChange}>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -163,9 +179,14 @@ export default class Form extends Component{
                     <option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
-                </select>				
-                <input type="submit" value="Submit" />
+                </select>	
+                </div>
+                </div>			
+                <button type="submit" className="btn btn-primary">Submit</button>
+                
+
             </form>
+            </div>
             </div>
         )
     }

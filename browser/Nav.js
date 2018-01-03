@@ -13,7 +13,7 @@ export default class Nav extends Component{
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 </button>
-                <Link className="navbar-brand" to="/" className="brand"><img src="../public/game.png"/> Football & Stuff</Link>
+                <Link className="navbar-brand " to="/" className="brand"><img src="../public/game.png"/> Football & Stuff</Link>
             </div>
             <div className="collapse navbar-collapse" id="myNavbar">
                 <ul className="nav navbar-nav navbar-right">
